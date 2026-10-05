@@ -1,0 +1,585 @@
+/* =========================================================
+SMS SPAM CLASSIFICATION SYSTEM
+Custom Responsive Styles
+BCA Project - Developed by Arnav
+========================================================= */
+
+/* =========================================================
+
+1. GENERAL PAGE STYLING
+   ========================================================= */
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+padding: 0;
+background-color: #f8f9fa;
+font-family: Arial, Helvetica, sans-serif;
+color: #212529;
+overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  }
+
+/* =========================================================
+2. NAVIGATION BAR
+========================================================= */
+
+.navbar {
+padding: 14px 0;
+}
+
+.navbar-brand {
+font-size: 1.4rem;
+font-weight: 700;
+white-space: normal;
+}
+
+.navbar-brand i {
+margin-right: 7px;
+}
+
+.navbar-brand small {
+font-size: 0.85rem;
+font-weight: 400;
+}
+
+/* =========================================================
+3. HERO / HEADER SECTION
+========================================================= */
+
+.header {
+background-color: #007bff;
+color: #ffffff;
+padding: 70px 0;
+}
+
+.header h1 {
+font-size: 2.8rem;
+font-weight: 700;
+line-height: 1.2;
+margin-bottom: 20px;
+}
+
+.header p {
+font-size: 1.2rem;
+line-height: 1.7;
+margin-bottom: 25px;
+max-width: 600px;
+}
+
+.header .btn {
+padding: 12px 25px;
+font-weight: 600;
+border-radius: 6px;
+}
+
+.hero-image {
+width: 100%;
+max-width: 520px;
+height: auto;
+display: block;
+margin: 0 auto;
+border-radius: 12px;
+object-fit: cover;
+}
+
+/* =========================================================
+4. PREDICTION SECTION
+========================================================= */
+
+.prediction-section {
+padding: 70px 0;
+}
+
+.prediction-card {
+background-color: #ffffff;
+padding: 40px;
+border-radius: 12px;
+box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.prediction-card h2 {
+font-size: 2rem;
+font-weight: 700;
+margin-bottom: 15px;
+}
+
+.prediction-card > p {
+font-size: 1rem;
+margin-bottom: 30px;
+}
+
+.form-group label {
+font-size: 1rem;
+margin-bottom: 8px;
+}
+
+textarea.form-control {
+min-height: 130px;
+resize: vertical;
+border-radius: 7px;
+padding: 14px;
+font-size: 1rem;
+line-height: 1.5;
+}
+
+textarea.form-control:focus {
+border-color: #007bff;
+box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.15);
+}
+
+.prediction-card button {
+padding: 11px 28px;
+font-size: 1.05rem;
+font-weight: 600;
+border-radius: 6px;
+}
+
+/* =========================================================
+5. PREDICTION RESULT
+========================================================= */
+
+.result-box {
+margin-top: 30px;
+padding: 20px;
+border-radius: 8px;
+font-size: 1.2rem;
+font-weight: 700;
+}
+
+.result-box i {
+font-size: 1.6rem;
+margin-bottom: 8px;
+}
+
+.result-box small {
+display: block;
+margin-top: 8px;
+font-size: 0.9rem;
+font-weight: 400;
+line-height: 1.5;
+}
+
+.spam-result {
+background-color: #f8d7da;
+color: #721c24;
+border: 1px solid #f5c6cb;
+}
+
+.ham-result {
+background-color: #d4edda;
+color: #155724;
+border: 1px solid #c3e6cb;
+}
+
+/* =========================================================
+6. FEATURES SECTION
+========================================================= */
+
+.features {
+background-color: #ffffff;
+padding: 70px 0;
+}
+
+.features h2 {
+font-size: 2rem;
+font-weight: 700;
+}
+
+.features > .container > .text-center > p {
+font-size: 1rem;
+}
+
+.feature {
+height: 100%;
+padding: 25px 20px;
+margin-bottom: 20px;
+}
+
+.feature i {
+color: #007bff;
+transition: transform 0.2s ease;
+}
+
+.feature:hover i {
+transform: scale(1.08);
+}
+
+.feature h3 {
+margin-top: 15px;
+margin-bottom: 12px;
+font-size: 1.25rem;
+font-weight: 700;
+}
+
+.feature p {
+line-height: 1.6;
+margin-bottom: 0;
+}
+
+/* =========================================================
+7. ABOUT PROJECT SECTION
+========================================================= */
+
+.about-section {
+background-color: #f8f9fa;
+padding: 70px 0;
+}
+
+.about-section h2 {
+font-size: 2rem;
+font-weight: 700;
+}
+
+.about-section > .container > p {
+max-width: 850px;
+margin-left: auto;
+margin-right: auto;
+line-height: 1.7;
+}
+
+.developer-name {
+color: #007bff;
+font-size: 1.7rem;
+font-weight: 700;
+margin-top: 8px;
+}
+
+/* =========================================================
+8. FOOTER
+========================================================= */
+
+.footer {
+background-color: #343a40;
+color: #ffffff;
+padding: 25px 0;
+}
+
+.footer p {
+margin-bottom: 5px;
+line-height: 1.5;
+}
+
+.footer .text-muted {
+color: #adb5bd !important;
+}
+
+/* =========================================================
+9. TABLET RESPONSIVENESS
+Devices approximately 768px - 991px
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+
+.header {
+    padding: 55px 0;
+}
+
+.header h1 {
+    font-size: 2.3rem;
+}
+
+.header p {
+    font-size: 1.1rem;
+}
+
+.hero-image {
+    max-width: 430px;
+    margin-top: 35px;
+}
+
+.prediction-section,
+.features,
+.about-section {
+    padding: 55px 0;
+}
+
+.prediction-card {
+    padding: 32px;
+}
+
+.feature {
+    padding: 20px 15px;
+}
+
+
+}
+
+/* =========================================================
+10. MOBILE RESPONSIVENESS
+Devices below 768px
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+/* Navigation */
+
+.navbar {
+    padding: 12px 15px;
+}
+
+.navbar-brand {
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+
+.navbar-brand small {
+    display: block;
+    margin-left: 0 !important;
+    margin-top: 2px;
+    font-size: 0.75rem;
+}
+
+
+/* Hero */
+
+.header {
+    padding: 45px 15px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+}
+
+.header p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 380px;
+    margin-top: 35px;
+}
+
+
+/* Prediction */
+
+.prediction-section {
+    padding: 45px 15px;
+}
+
+.prediction-card {
+    padding: 25px 20px;
+    border-radius: 10px;
+}
+
+.prediction-card h2 {
+    font-size: 1.6rem;
+}
+
+.prediction-card > p {
+    font-size: 0.95rem;
+}
+
+textarea.form-control {
+    min-height: 120px;
+    font-size: 0.95rem;
+}
+
+.prediction-card button {
+    width: 100%;
+    font-size: 1rem;
+}
+
+
+/* Result */
+
+.result-box {
+    padding: 17px;
+    font-size: 1.05rem;
+}
+
+.result-box small {
+    font-size: 0.85rem;
+}
+
+
+/* Features */
+
+.features {
+    padding: 50px 15px;
+}
+
+.features h2 {
+    font-size: 1.7rem;
+}
+
+.feature {
+    padding: 20px 10px;
+    margin-bottom: 15px;
+}
+
+.feature i {
+    font-size: 3rem;
+}
+
+.feature h3 {
+    font-size: 1.15rem;
+}
+
+.feature p {
+    font-size: 0.93rem;
+}
+
+
+/* About */
+
+.about-section {
+    padding: 50px 15px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 1.7rem;
+}
+
+.about-section p {
+    font-size: 0.93rem;
+}
+
+.developer-name {
+    font-size: 1.5rem;
+}
+
+
+/* Footer */
+
+.footer {
+    padding: 20px 15px;
+}
+
+.footer p {
+    font-size: 0.85rem;
+}
+
+}
+
+/* =========================================================
+11. SMALL MOBILE DEVICES
+Devices below 480px
+========================================================= */
+
+@media (max-width: 479.98px) {
+
+
+.header {
+    padding: 38px 12px;
+}
+
+.header h1 {
+    font-size: 1.7rem;
+}
+
+.header p {
+    font-size: 0.92rem;
+}
+
+.header .btn {
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.hero-image {
+    max-width: 100%;
+}
+
+.prediction-section {
+    padding: 35px 10px;
+}
+
+.prediction-card {
+    padding: 22px 15px;
+}
+
+.prediction-card h2 {
+    font-size: 1.4rem;
+}
+
+.prediction-card > p {
+    font-size: 0.9rem;
+}
+
+textarea.form-control {
+    min-height: 110px;
+}
+
+.features {
+    padding: 40px 10px;
+}
+
+.features h2 {
+    font-size: 1.5rem;
+}
+
+.about-section {
+    padding: 40px 12px;
+}
+
+.about-section h2 {
+    font-size: 1.5rem;
+}
+
+
+}
+
+/* =========================================================
+12. LARGE DESKTOP SCREENS
+========================================================= */
+
+@media (min-width: 1200px) {
+
+
+.header {
+    padding: 85px 0;
+}
+
+.header h1 {
+    font-size: 3.1rem;
+}
+
+.header p {
+    font-size: 1.25rem;
+}
+
+.prediction-section,
+.features,
+.about-section {
+    padding: 80px 0;
+}
+
+.prediction-card {
+    padding: 45px;
+}
+
+
+}
+
+/* =========================================================
+13. ACCESSIBILITY / REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+
+html {
+    scroll-behavior: auto;
+}
+
+.feature i {
+    transition: none;
+}
+
+
+}

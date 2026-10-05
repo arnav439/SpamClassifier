@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SMS Spam Classification System | Arnav & Rajan</title>
+
+<!-- Bootstrap CSS -->
+<link
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}">
+
+<!-- Font Awesome -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+
+    /* General Page Styling */
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+        color: #212529;
+    }
+
+    /* Navigation Bar */
+    .navbar-brand {
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    .navbar-brand small {
+        font-size: 0.85rem;
+        font-weight: normal;
+    }
+
+    /* Hero Section */
+    .header {
+        background-color: #007bff;
+        color: white;
+        padding: 65px 0;
+    }
+
+    .header h1 {
+        font-size: 2.8rem;
+        font-weight: bold;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-top: 15px;
+    }
+
+    .hero-image {
+        max-width: 90%;
+        border-radius: 10px;
+    }
+
+    /* Prediction Section */
+    .prediction-section {
+        padding: 60px 0;
+    }
+
+    .prediction-card {
+        background-color: white;
+        padding: 35px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .prediction-card h2 {
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .prediction-card p {
+        line-height: 1.6;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    /* Prediction Result */
+    .result-box {
+        margin-top: 25px;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .spam-result {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    .ham-result {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .result-box small {
+        display: block;
+        margin-top: 8px;
+        font-weight: normal;
+    }
+
+    /* Features Section */
+    .features {
+        background-color: white;
+        padding: 60px 0;
+    }
+
+    .feature {
+        padding: 25px;
+        height: 100%;
+    }
+
+    .feature i {
+        color: #007bff;
+    }
+
+    .feature h3 {
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    .feature p {
+        line-height: 1.6;
+    }
+
+    /* About Section */
+    .about-section {
+        background-color: #f8f9fa;
+        padding: 60px 0;
+    }
+
+    .developer-name {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 25px 0;
+    }
+
+    .footer p {
+        margin-bottom: 5px;
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+
+<!-- Navigation Bar -->
+
+<!-- ========================= -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+
+```
+<div class="container">
+
+    <a class="navbar-brand text-primary" href="#">
+
+        <i class="fas fa-shield-alt"></i>
+
+        SMS Spam Classifier
+
+        <small class="text-muted ml-2">
+            | by Arnav & Rajan
+        </small>
+
+    </a>
+
+</div>
+```
+
+</nav>
+
+<!-- ========================= -->
+
+<!-- Hero Section -->
+
+<!-- ========================= -->
+
+<section class="header">
+
+```
+<div class="container">
+
+    <div class="row align-items-center">
+
+        <!-- Hero Text -->
+
+        <div class="col-lg-6">
+
+            <h1>
+                SMS Spam Classification System
+            </h1>
+
+            <p>
+
+                A Machine Learning and Natural Language Processing
+                based system designed to classify SMS messages as
+                Spam or Not Spam.
+
+            </p>
+
+            <a href="#predict"
+               class="btn btn-light btn-lg mt-3">
+
+                <i class="fas fa-search"></i>
+
+                Try the Classifier
+
+            </a>
+
+        </div>
+
+
+        <!-- Hero Image -->
+
+        <div class="col-lg-6 text-center">
+
+            <img
+                src="https://i.ytimg.com/vi/A2X65q2fkBo/hq720.jpg"
+                alt="SMS Spam Classification"
+                class="img-fluid hero-image">
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ========================= -->
+
+<!-- Prediction Section -->
+
+<!-- ========================= -->
+
+<section id="predict" class="prediction-section">
+
+```
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-8 offset-lg-2">
+
+            <div class="prediction-card">
+
+                <h2 class="text-center">
+
+                    <i class="fas fa-comment-alt text-primary"></i>
+
+                    Check Your SMS
+
+                </h2>
+
+
+                <p class="text-center text-muted">
+
+                    Enter an SMS message below to determine whether
+                    it is Spam or Not Spam.
+
+                </p>
+
+
+                <!-- Prediction Form -->
+
+                <form method="POST" action="/predict">
+
+                    <div class="form-group">
+
+                        <label for="message">
+
+                            <strong>
+                                Enter SMS Message:
+                            </strong>
+
+                        </label>
+
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            class="form-control"
+                            placeholder="Example: Congratulations! You have won a free prize. Click here to claim..."
+                            required></textarea>
+
+                    </div>
+
+
+                    <div class="text-center">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-lg">
+
+                            <i class="fas fa-brain"></i>
+
+                            Classify Message
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+
+                <!-- ========================= -->
+                <!-- Prediction Result -->
+                <!-- ========================= -->
+
+                {% if result is defined %}
+
+                    <div class="text-center">
+
+
+                        {% if result == 1 %}
+
+                            <!-- Spam Result -->
+
+                            <div class="result-box spam-result">
+
+                                <i class="fas fa-exclamation-triangle"></i>
+
+                                <div>
+
+                                    Prediction: SPAM
+
+                                </div>
+
+                                <small>
+
+                                    This message has been classified
+                                    as a spam message.
+
+                                </small>
+
+                            </div>
+
+
+                        {% else %}
+
+                            <!-- Not Spam Result -->
+
+                            <div class="result-box ham-result">
+
+                                <i class="fas fa-check-circle"></i>
+
+                                <div>
+
+                                    Prediction: NOT SPAM
+
+                                </div>
+
+                                <small>
+
+                                    This message has been classified
+                                    as a legitimate message.
+
+                                </small>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ========================= -->
+
+<!-- Features Section -->
+
+<!-- ========================= -->
+
+<section class="features">
+
+```
+<div class="container">
+
+
+    <div class="text-center mb-5">
+
+        <h2>
+            System Features
+        </h2>
+
+        <p class="text-muted">
+
+            Key technologies and components used in the
+            SMS Spam Classification System.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="row">
+
+
+        <!-- Feature 1 -->
+
+        <div class="col-lg-4">
+
+            <div class="feature text-center">
+
+                <i class="fas fa-language fa-4x mb-3"></i>
+
+                <h3 class="h4">
+
+                    Natural Language Processing
+
+                </h3>
+
+                <p class="text-muted">
+
+                    The system processes and transforms SMS text
+                    into a suitable representation for machine
+                    learning classification.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Feature 2 -->
+
+        <div class="col-lg-4">
+
+            <div class="feature text-center">
+
+                <i class="fas fa-chart-bar fa-4x mb-3"></i>
+
+                <h3 class="h4">
+
+                    TF-IDF Feature Extraction
+
+                </h3>
+
+                <p class="text-muted">
+
+                    TF-IDF converts textual messages into numerical
+                    features that can be processed by the
+                    machine learning model.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Feature 3 -->
+
+        <div class="col-lg-4">
+
+            <div class="feature text-center">
+
+                <i class="fas fa-robot fa-4x mb-3"></i>
+
+                <h3 class="h4">
+
+                    Machine Learning
+
+                </h3>
+
+                <p class="text-muted">
+
+                    The trained classification model analyzes
+                    message patterns and predicts whether a
+                    message is Spam or Not Spam.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="row mt-4">
+
+
+        <!-- Feature 4 -->
+
+        <div class="col-lg-4">
+
+            <div class="feature text-center">
+
+                <i class="fas fa-server fa-4x mb-3"></i>
+
+                <h3 class="h4">
+
+                    Flask Web Application
+
+                </h3>
+
+                <p class="text-muted">
+
+                    The trained machine learning model is integrated
+                    into a Flask-based web application for
+                    real-time user interaction.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Feature 5 -->
+
+        <div class="col-lg-4">
+
+            <div class="feature text-center">
+
+                <i class="fas fa-filter fa-4x mb-3"></i>
+
+                <h3 class="h4">
+
+                    Spam Detection
+
+                </h3>
+
+                <p class="text-muted">
+
+                    The system identifies unwanted or suspicious
+                    SMS messages and separates them from legitimate
+                    messages.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Feature 6 -->
+
+        <div class="col-lg-4">
+
+            <div class="feature text-center">
+
+                <i class="fas fa-desktop fa-4x mb-3"></i>
+
+                <h3 class="h4">
+
+                    Simple User Interface
+
+                </h3>
+
+                <p class="text-muted">
+
+                    A responsive and easy-to-use interface allows
+                    users to enter an SMS and view the classification
+                    result.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ========================= -->
+
+<!-- About Project Section -->
+
+<!-- ========================= -->
+
+<section class="about-section">
+
+```
+<div class="container text-center">
+
+    <h2>
+        About the Project
+    </h2>
+
+
+    <p class="text-muted mt-3">
+
+        This project has been developed as part of the
+        Bachelor of Computer Applications (BCA) academic project.
+        It demonstrates the practical application of Natural
+        Language Processing, Machine Learning, TF-IDF feature
+        extraction and Flask web development for SMS spam
+        detection.
+
+    </p>
+
+
+    <!-- Developer Information -->
+
+    <div class="mt-4">
+
+        <h5>
+            Developed By
+        </h5>
+
+        <h3 class="developer-name">
+
+            Arnav & Rajan
+
+        </h3>
+
+        <p class="text-muted">
+
+            Bachelor of Computer Applications (BCA)
+
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ========================= -->
+
+<!-- Footer -->
+
+<!-- ========================= -->
+
+<footer class="footer text-center">
+
+```
+<div class="container">
+
+    <p>
+
+        <strong>
+            SMS Spam Classification System
+        </strong>
+
+        | BCA Project
+
+    </p>
+
+
+    <p class="small">
+
+        Developed by <strong>Arnav & Rajan</strong>
+
+    </p>
+
+
+    <p class="small">
+
+        Python • NLP • Machine Learning • Flask
+
+    </p>
+
+
+    <p class="small text-muted">
+
+        © 2026 Arnav. All rights reserved.
+
+    </p>
+
+</div>
+```
+
+</footer>
+
+<!-- ========================= -->
+
+<!-- JavaScript -->
+
+<!-- ========================= -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+
+</html>
