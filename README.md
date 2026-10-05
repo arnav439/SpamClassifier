@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SmS_Spam_Classifier
 
 Certainly, here are the step-by-step instructions for setting up and running the application using a virtual environment for Python 3.9:
@@ -48,3 +49,6 @@ By following these steps, you can set up a virtual environment, install necessar
 
 #### Master_iNeuron
 "# SpamClassifier" 
+=======
+# SpamClassifier
+>>>>>>> 254460d9fdaf53930d8e9484ce944a5b79ef41f2
