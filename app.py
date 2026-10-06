@@ -60,4 +60,4 @@ def predict():
 if __name__ == '__main__':
     tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
     model = pickle.load(open('model.pkl', 'rb'))
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',port=5000)
