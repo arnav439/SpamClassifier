@@ -1,4 +1,15 @@
-<<<<<<< HEAD
+---
+title: SpamClassfier
+emoji: 🐢
+colorFrom: indigo
+colorTo: red
+sdk: static
+pinned: false
+short_description: This is my SpamClassifier Project.
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+=======
 # SmS_Spam_Classifier
 
 Certainly, here are the step-by-step instructions for setting up and running the application using a virtual environment for Python 3.9:
@@ -22,17 +33,16 @@ Certainly, here are the step-by-step instructions for setting up and running the
 4. **Run Application.py**:
    -python app.py
 
-5. **Let's Deploy it at Render.com**:
-   -go to this website: https://dashboard.render.com/web
-   -then click on new and choose web serivces
-   -choose this :Build and deploy from a Git repository and click on next
-   -then in settings :![image](https://github.com/MasteriNeuron/Spam-Classifier/assets/127201746/7d0493d1-7e0a-46cb-b15e-e3f45f006d1d)
 
 
 
-   The output:
-   ![image](https://github.com/MasteriNeuron/Spam-Classifier/assets/127201746/df102d55-1e43-482f-b283-c89154a51169)
 
+
+   ![web interface](image-1.png)
+
+   ![web interface](image-2.png)
+
+   ![web interface](image.png)
 
    
 
@@ -44,6 +54,4 @@ By following these steps, you can set up a virtual environment, install necessar
 
 #### Master_iNeuron
 "# SpamClassifier" 
-=======
-# SpamClassifier
->>>>>>> 254460d9fdaf53930d8e9484ce944a5b79ef41f2
+>>>>>>> ac07a6b (Initial commit of Spam Classifier project)
