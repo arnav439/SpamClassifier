@@ -7,10 +7,16 @@ import string
 
 app = Flask(__name__)
 
+# Core datasets required by NLTK text processing
+nltk.download('punkt')
 nltk.download('punkt_tab')
 nltk.download('stopwords')
 
 ps = PorterStemmer()
+
+# Load pickle files globally so the production server initializes them on startup
+tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 def transform_text(text):
     text = text.lower()
@@ -42,8 +48,12 @@ def predict_spam(message):
     # Vectorize
     vector_input = tfidf.transform([transformed_sms])
     # Predict
-    result = model.predict(vector_input)[0]
-    return result
+    result = model.predict(vector_input)
+    
+    # Safely extract single value whether it returns a single item or an array
+    if hasattr(result, "__len__") or isinstance(result, list):
+        return int(result[0])
+    return int(result)
 
 @app.route('/')
 def home():
@@ -54,10 +64,7 @@ def predict():
     if request.method == 'POST':
         input_sms = request.form['message']
         result = predict_spam(input_sms)
-        return render_template('index.html', result=result)  # Pass 'result' to the template
-
+        return render_template('index.html', result=result)
 
 if __name__ == '__main__':
-    tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
-    model = pickle.load(open('model.pkl', 'rb'))
-    app.run(host='0.0.0.0',port=5000)
+    app.run(host='0.0.0.0', port=5000)
